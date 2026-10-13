@@ -1,0 +1,20 @@
+name: simple demo ci/cd
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: welcome
+        run: echo "hello world"
+
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Goodbye
+        run: echo "job 2 finished after job 1"
